@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
 import { AiOutlineRight } from 'react-icons/ai';
-import { FaGreaterThan } from 'react-icons/fa';
 
 const Hero = () => {
   return (
