@@ -5,8 +5,10 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React from 'react';
 import { AiOutlineRight } from 'react-icons/ai';
-import { FaFacebook, FaStar } from 'react-icons/fa';
-import { FaLinkedinIn } from 'react-icons/fa6';
+import { FaFacebook, FaStar, FaTwitter } from 'react-icons/fa';
+import { FaLinkedin} from 'react-icons/fa6';
+import Description from './description';
+import RelatedProducts from './relatedproducts';
 
 const data = [
  
@@ -264,7 +266,7 @@ const ProductDetails = () => {
               Add to Cart
             </button>
           </div>
-          <div className='border-t border-[#9F9F9F]  mt-10 w-full'>
+          <div className='border-t-2 mt-10 w-full'>
             <div className='flex gap-4 mt-6'>
                <div>
               <ul className='text-[16px] text-[#9F9F9F] leading-[35px]'>
@@ -287,13 +289,19 @@ const ProductDetails = () => {
                 <li> SS001</li>
               <li> Sofas</li>
               <li> Sofa,Chair,Home,Shop</li>
-              <li><FaFacebook/> <FaLinkedinIn/></li>
+                  <li className='flex gap-5 mt-2'>
+                    <FaFacebook className='text-[22px] hover:text-[#2b3e8f] duration-200 text-black' />
+                    <FaLinkedin className='hover:text-[#2b3e8f] duration-200 text-[22px] text-black' />
+                    <FaTwitter className='hover:text-[#2b3e8f] duration-200 text-[22px] text-black' />
+                  </li>
               </ul>
           </div>
            </div>
           </div>
         </div>
       </div>
+      <Description />
+      <RelatedProducts/>
     </div>
   );
 };

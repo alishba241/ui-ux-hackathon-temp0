@@ -111,10 +111,10 @@ function FilteredProducts() {
 
   return (
     <div className="flex flex-col items-center justify-center px-6 pb-20 bg-white">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 mt-8  md:mt-16">
         {data.map((product) => (
           <Link href={`/productpage/${product.id}`} key={product.id}>
-            <div className="hover:shadow-lg  w-[287px] h-[397px] flex flex-col items-center rounded-[4px] p-4 cursor-pointer">
+            <div className="hover:shadow-lg  md:w-[287px] md:h-[397px] flex flex-col items-center rounded-[4px] p-4 cursor-pointer">
               <div className="flex justify-center items-center h-[200px] w-full mb-4">
                 <Image
                   src={product.image}
@@ -125,18 +125,18 @@ function FilteredProducts() {
                 />
               </div>
               <div className="w-full mt-[35px]">
-                <p className="text-[15px] font-medium text-left">{product.title}</p>
-                <p className="text-black text-[24px] font-bold text-left mt-2">Rs. {product.price}</p>
+                <p className="text-[12px] md:text-[15px] md:font-medium text-left">{product.title}</p>
+                <p className="text-black text-[18px] md:text-[24px] font-medium md:font-bold text-left mt-2">Rs. {product.price}</p>
               </div>
             </div>
           </Link>
         ))}
       </div>
-      <div className="flex justify-center items-center gap-8 mt-16">
-        <button className="h-[60px] text-[18px] w-[60px] rounded-[10px] bg-[#FBEBB5] text-black">1</button>
-        <button className="h-[60px] text-[18px] w-[60px] bg-[#FFF9E5] rounded-[10px] text-black">2</button>
-        <button className="h-[60px] text-[18px] w-[60px] bg-[#FFF9E5] rounded-[10px] text-black">3</button>
-        <button className="h-[60px] text-[18px] w-[98px] bg-[#FFF9E5] rounded-[10px] text-black">Next</button>
+      <div className="flex justify-center items-center gap-4 md:gap-8 mt-10 md:mt-16">
+        <button className="md:h-[60px] h-[40px] text-[12px] md:text-[18px] md:w-[60px] w-[40px] rounded-[10px] bg-[#FBEBB5] text-black">1</button>
+        <button className="md:h-[60px] h-[40px] text-[12px] md:text-[18px] md:w-[60px] w-[40px] bg-[#FFF9E5] hover:bg-[#FBEBB5]  rounded-[10px] text-black">2</button>
+        <button className="md:h-[60px] h-[40px] text-[12px] md:text-[18px] md:w-[60px] w-[40px] bg-[#FFF9E5] hover:bg-[#FBEBB5]  rounded-[10px] text-black">3</button>
+        <button className="md:h-[60px] h-[40px] text-[12px] md:text-[18px] md:w-[98px] w-[70px] bg-[#FFF9E5] hover:bg-[#FBEBB5]  rounded-[10px] text-black">Next</button>
       </div>
     </div>
   );

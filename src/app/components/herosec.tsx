@@ -2,15 +2,15 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="flex items-center justify-between space-y-20 bg-[#FBEBB5] h-screen px-6 md:px-12 lg:px-24">
+    <section className="flex md:flex-row flex-col-reverse items-center justify-between space-y-20 bg-[#FBEBB5] h-screen px-6 md:px-12 lg:px-24">
       {/* Text Content */}
-      <div className="mt-20 relative -right-24">
+      <div className="md:mt-20 relative md:-right-24 md:pb-0 pb-20  ">
         <h1 className="text-3xl md:text-[60px] font-medium leading-tight text-black">
           Rocket single <br /> seater
         </h1>
         <a
           href="#"
-          className="mt-12 inline-block text-[24px] font-medium text-black underline underline-offset-[18px] decoration-2 "
+          className="mt-8 md:mt-12 inline-block text-[18px] md:text-[24px] font-medium text-black underline underline-offset-[18px] decoration-2 "
         >
           Shop Now
         </a>
