@@ -21,9 +21,9 @@ export default function HeroSection() {
         <Image
           src="/Rocket single seater 1 copy2.png" 
           alt="Rocket single seater"
-                  className="w-full max-w-md md:max-w-lg xl:max-w-2xl"
-                  width={400}
-                  height={400}
+                  className="md:h-[900px] md:w-[700px] h-[400px] w-[500px]"
+                  width={600}
+                  height={600}
         />
       </div>
     </section>
