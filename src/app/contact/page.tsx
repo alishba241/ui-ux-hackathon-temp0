@@ -34,6 +34,7 @@ const page = () => {
             Home <AiOutlineRight className="inline-block" />
             <span className="font-light"> Contact</span>
           </p>
+       
         </div>
       </div>
 

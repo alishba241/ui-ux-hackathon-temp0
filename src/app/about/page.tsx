@@ -214,9 +214,11 @@ const page = () => {
                 {recentPosts.map((post) => (
                   <li key={post.id} className="flex items-center space-x-4">
                     {/* Post Image */}
-                    <img
+                    <Image
                       src={post.image}
                       alt={post.title}
+                      width={300}
+                      height={300}
                       className="w-16 h-16 object-cover rounded-md"
                     />
                     {/* Post Details */}

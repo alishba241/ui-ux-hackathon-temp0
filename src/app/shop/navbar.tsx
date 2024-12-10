@@ -75,7 +75,44 @@ function Navbar() {
             </Link>
           </li>
            
-          
+                {/* Icons Section */}
+      <div className="flex space-x-[30px] ">
+        <Link href="/account">
+          <Image
+            src="/mdi_account-alert-outline.png"
+            alt=""
+            width={24}
+            height={24}
+            className="hover:text-gray-600"
+          />
+        </Link>
+        <Image
+          src="/akar-icons_search.png"
+          alt=""
+          width={24}
+          height={24}
+          className="hover:text-gray-600"
+        />
+        <Image
+          src="/akar-icons_heart.png"
+          alt=""
+          width={24}
+          height={24}
+          className="hover:text-gray-600"
+        />
+        <button onClick={toggleCart}>
+          <Image
+            src="/ant-design_shopping-cart-outlined.png"
+            alt=""
+            width={24}
+            height={24}
+            className="hover:text-gray-600"
+          />
+        </button>
+      </div>
+
+      {/* Shopping Cart Sidebar */}
+      <ShoppingCart isCartOpen={isCartOpen} toggleCart={toggleCart} />
         </ul>
       )}
 

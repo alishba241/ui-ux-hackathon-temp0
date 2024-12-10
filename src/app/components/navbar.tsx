@@ -18,7 +18,7 @@ function Navbar() {
   };
 
   return (
-    <div className="flex h-[100px] items-center justify-between  px-4 sm:px-6 md:px-12 lg:px-24 py-4 bg-[#FBEBB5] text-black">
+    <div className="flex h-[100px] items-center justify-between  px-4 sm:px-6 md:px-12 lg:px-24 py-4   bg-[#FBEBB5] text-black">
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex space-x-[72px] md:relative md:left-[30%]">
@@ -53,7 +53,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <ul className="absolute top-[100px] left-0 w-full bg-[#FBEBB5] flex flex-col space-y-4 px-6 py-4 z-50 shadow-md md:hidden">
+        <ul className="absolute top-[100px] left-0 w-full   bg-[#FBEBB5] flex flex-col space-y-4 px-6 py-4 z-50 shadow-md md:hidden">
           <li>
             <Link href="/" className="text-black hover:text-gray-600 font-medium text-[16px]" onClick={toggleMenu}>
               Home
@@ -75,7 +75,44 @@ function Navbar() {
             </Link>
           </li>
            
-          
+                {/* Icons Section */}
+      <div className="flex space-x-[30px] ">
+        <Link href="/account">
+          <Image
+            src="/mdi_account-alert-outline.png"
+            alt=""
+            width={24}
+            height={24}
+            className="hover:text-gray-600"
+          />
+        </Link>
+        <Image
+          src="/akar-icons_search.png"
+          alt=""
+          width={24}
+          height={24}
+          className="hover:text-gray-600"
+        />
+        <Image
+          src="/akar-icons_heart.png"
+          alt=""
+          width={24}
+          height={24}
+          className="hover:text-gray-600"
+        />
+        <button onClick={toggleCart}>
+          <Image
+            src="/ant-design_shopping-cart-outlined.png"
+            alt=""
+            width={24}
+            height={24}
+            className="hover:text-gray-600"
+          />
+        </button>
+      </div>
+
+      {/* Shopping Cart Sidebar */}
+      <ShoppingCart isCartOpen={isCartOpen} toggleCart={toggleCart} />
         </ul>
       )}
 
