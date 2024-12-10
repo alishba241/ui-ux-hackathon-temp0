@@ -16,7 +16,7 @@ const Hero = () => {
 
           />
            {/* Overlay Content */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white '">
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white ">
         <Image
         src={'/Meubel House_Logos-05.png'}
         alt=''

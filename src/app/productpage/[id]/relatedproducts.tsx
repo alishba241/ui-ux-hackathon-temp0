@@ -37,16 +37,16 @@ function RelatedProducts() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center px-6 pt-12 pb-32 bg-white">
+    <div className="flex flex-col items-center justify-center px-6 py-20 bg-white">
       {/* Heading Section */}
-      <h1 className="text-[36px] font-medium text-center">Related Products</h1>
+      <h1 className=" text-[24px] md:text-[36px] font-medium text-center">Related Products</h1>
 
       {/* Grid Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-16 md:w-full w-[78%]">
         {data.map((product) => (
           <div
             key={product.id}
-            className="hover:shadow-lg  w-[287px] h-[397px] flex flex-col items-center rounded-[4px]  p-4"
+            className="hover:shadow-lg  md:w-[287px] md:h-[397px] flex flex-col items-center rounded-[4px]  p-4"
           >
             {/* Product Image */}
             <div className="flex justify-center items-center h-[200px] w-full mb-4">
@@ -61,15 +61,15 @@ function RelatedProducts() {
 
             {/* Product Details */}
             <div className="w-full mt-[35px]">
-              <p className="text-[15px] font-medium text-left">{product.title}</p>
-              <p className="text-black text-[24px] font-bold text-left mt-2">Rs. {product.price}</p>
+              <p className=" text-[12px] md:text-[15px] md:font-medium text-left">{product.title}</p>
+              <p className="text-black text-[18px] md:text-[24px] font-medium md:font-bold text-left mt-2">Rs. {product.price}</p>
             </div>
           </div>
         ))}
       </div>
 
       {/* View More Button */}
-      <a href='#'className="mt-10 inline-block text-[20px] font-medium text-black underline underline-offset-[19px] decoration-2">
+      <a href='#'className="mt-5 md:mt-10 inline-block text-[14px] md:text-[20px] font-medium text-black underline underline-offset-8 md:underline-offset-[19px] decoration-2">
         View More
       </a>
     </div>
