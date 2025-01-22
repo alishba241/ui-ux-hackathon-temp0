@@ -20,22 +20,22 @@ const Footer = () => {
           <h3 className="text-[16px] text-[#9F9F9F] font-medium mb-4 md:text-start">Links</h3>
           <ul className="leading-[60px] md:leading-[70px]">
             <li>
-              <Link href="#" className="text-[16px] font-medium text-black">
+              <Link href="/" className="text-[16px] font-medium text-black">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-[16px] font-medium text-black">
+              <Link href="/shop" className="text-[16px] font-medium text-black">
                 Shop
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-[16px] font-medium text-black">
-                About
+              <Link href="/blog" className="text-[16px] font-medium text-black">
+                Blogs
               </Link>
             </li>
             <li>
-              <Link href="#" className="text-[16px] font-medium text-black">
+              <Link href="/contact" className="text-[16px] font-medium text-black">
                 Contact
               </Link>
             </li>

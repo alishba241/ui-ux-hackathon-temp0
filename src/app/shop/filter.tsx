@@ -1,49 +1,97 @@
-import Image from 'next/image'
-import React from 'react'
+'use client'
 
-const Filter = () => {
-  return (
-    <div className='bg-[#FAF4F4] md:h-[90px] h-[50px] flex justify-between items-center md:px-20 px-8 mt-6 md:mt-10'>
-              <div className='flex justify-center items-center gap-2 md:gap-4 text-[16px]'>
-                  <Image
-                  src={'/system-uicons_filtering.png'}
-                      alt=''
-                      height={20}
-                      width={20}
-                      className='md:h-[20px] md:w-[20px] h-[16px] w-[16px]'
+import React, { useState, useEffect } from "react";
 
-                  />
-                  <p className='text-[10px] md:text-[16px]'>Filter</p>
-                   <Image
-                  src={'/ci_grid-big-round.png'}
-                      alt=''
-                      height={20}
-                      width={20}
-                      className='md:h-[20px] md:w-[20px] h-[16px] w-[16px]'
-                  />
-                   <Image
-                  src={'/bi_view-list.png'}
-                      alt=''
-                      height={20}
-                      width={20}
-                      className='md:h-[20px] md:w-[20px] h-[16px] w-[16px]'
-                  />
-                  <Image
-                  src={'/Line 5.png'}
-                      alt=''
-                      height={1.5}
-                      width={1.5}
-                  />
-                  <p className='text-[10px] md:text-[16px]'>Showing 1–16 of 32 results</p>
-              </div>
-              <div className=' hidden md:flex justify-center items-center gap-2 md:gap-4 text-[10px] md:text-[16px] font-medium'>
-                  <p className=''>Show</p>
-                  <p className='text-[#9F9F9F] bg-white px-4 py-3'>16</p>
-                  <p className=''>Short By</p>
-                  <p className='text-[#9F9F9F] bg-white px-10  py-2 text-left w-max'><span className='text-left'>Default</span></p>
-              </div>
-</div>
-  )
+export interface FilterBarProps {
+  onFilterChange: (filters: { category: string; price_range: string; }) => void;
 }
 
-export default Filter
+const FilterBar: React.FC<FilterBarProps> = ({ onFilterChange }) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedPriceRange, setSelectedPriceRange] = useState<string>("");
+
+  //! Load filters from localStorage 
+  useEffect(() => {
+    const savedCategory = localStorage.getItem("selectedCategory");
+    const savedPriceRange = localStorage.getItem("selectedPriceRange");
+
+    if (savedCategory) {
+      setSelectedCategory(savedCategory);
+    }
+    if (savedPriceRange) {
+      setSelectedPriceRange(savedPriceRange);
+    }
+  }, []);
+
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLInputElement>, category: string) => {
+    setSelectedCategory(category);
+    localStorage.setItem("selectedCategory", category); // Save to localStorage
+  };
+
+  const handlePriceRangeChange = (e: React.ChangeEvent<HTMLInputElement>, range: string) => {
+    setSelectedPriceRange(range);
+    localStorage.setItem("selectedPriceRange", range); // Save to localStorage
+  };
+
+  const applyFilters = () => {
+    onFilterChange({ category: selectedCategory, price_range: selectedPriceRange });
+  };
+
+  return (
+    <div className="w-full bg-[#FAF4F4] p-4 flex flex-col md:flex-row justify-between items-center gap-4 shadow-[#FAF4F4] shadow-md rounded-md">
+      {/* Category Filter */}
+      <div>
+        <label htmlFor="category" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+          Category
+        </label>
+        <div className="flex flex-wrap gap-2">
+          {["Sofa", "Dinning", "Table", "Sideboard", "Chair"].map((category) => (
+            <label key={category} className="flex items-center space-x-2 text-sm">
+              <input
+                type="checkbox"
+                value={category}
+                checked={selectedCategory === category}
+                onChange={(e) => handleCategoryChange(e, category)}
+                className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+              />
+              <span>{category}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Price Range Filter */}
+      <div>
+        <label htmlFor="price_range" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+          Price Range
+        </label>
+        <div className="flex flex-wrap gap-2">
+          {["20k - 30k", "10k - 20k", "70k and above"].map((range) => (
+            <label key={range} className="flex items-center space-x-2 text-sm">
+              <input
+                type="checkbox"
+                value={range}
+                checked={selectedPriceRange === range}
+                onChange={(e) => handlePriceRangeChange(e, range)}
+                className="h-4 w-4 text-indigo-600 border-none rounded focus:ring-indigo-500"
+              />
+              <span>{range}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Apply Filters Button */}
+      <div className="flex items-center mt-4 md:mt-0">
+        <button
+          onClick={applyFilters}
+          className="px-4 py-2 bg-black text-white text-sm rounded-md hover:bg-gray-700 transition"
+        >
+          Apply Filters
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default FilterBar;

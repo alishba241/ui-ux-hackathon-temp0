@@ -165,9 +165,7 @@ const page = () => {
                   <p className="text-[#9F9F9F] text-[13px] md:text-[15px] mb-4">
                     {blog.description}
                   </p>
-                  <button className="text-black mt-2  md:mt-5 text-[14px]  md:text-[16px] font-semibold underline underline-offset-8 ">
-                    Read more
-                  </button>
+                 
                 </div>
               </div>
             ))}
@@ -235,12 +233,7 @@ const page = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center gap-4 md:gap-8 mt-10 mb-6 md:mb-0 md:mt-16">
-        <button className="md:h-[60px] h-[40px] text-[12px] md:text-[18px] md:w-[60px] w-[40px] rounded-[10px] bg-[#FBEBB5] text-black">1</button>
-        <button className="md:h-[60px] h-[40px] text-[12px] md:text-[18px] md:w-[60px] w-[40px] bg-[#FFF9E5] hover:bg-[#FBEBB5]  rounded-[10px] text-black">2</button>
-        <button className="md:h-[60px] h-[40px] text-[12px] md:text-[18px] md:w-[60px] w-[40px] bg-[#FFF9E5] hover:bg-[#FBEBB5]  rounded-[10px] text-black">3</button>
-        <button className="md:h-[60px] h-[40px] text-[12px] md:text-[18px] md:w-[98px] w-[70px] bg-[#FFF9E5] hover:bg-[#FBEBB5]  rounded-[10px] text-black">Next</button>
-      </div>
+      
       <Delivery />
     </div>
   );

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const Blog = () => {
@@ -30,12 +31,12 @@ const Blog = () => {
             <p className="text-[12px] md:text-[15px] font-medium text-center">
               Going all-in with millennial design
             </p>
-            <a
-              href="#"
+            <Link
+              href="/blog"
               className="mt-3 text-[15px] md:text-[18px]  font-medium text-black underline underline-offset-8 md:underline-offset-[13px] decoration-2"
             >
               Read More
-            </a>
+            </Link>
             <div className="flex items-center justify-center text-[12px] md:text-[14px] mt-6 gap-2">
               <Image
               src={'/Group.png'}
@@ -69,12 +70,12 @@ const Blog = () => {
             <p className="text-[12px] md:text-[15px] font-medium text-center">
               Going all-in with millennial design
             </p>
-            <a
-              href="#"
+            <Link
+              href="/blog"
               className="mt-3 text-[15px] md:text-[18px]  font-medium text-black underline underline-offset-8 md:underline-offset-[13px] decoration-2"
             >
               Read More
-            </a>
+            </Link>
             <div className="flex items-center justify-center text-[14px] mt-6 gap-2">
                <Image
               src={'/Group.png'}
@@ -107,12 +108,12 @@ const Blog = () => {
             <p className="text-[12px] md:text-[15px] font-medium text-center">
               Going all-in with millennial design
             </p>
-            <a
-              href="#"
+            <Link
+              href="/blog"
               className="mt-3 text-[15px] md:text-[18px]  font-medium text-black underline underline-offset-8 md:underline-offset-[13px] decoration-2"
             >
               Read More
-            </a>
+            </Link>
             <div className="flex items-center justify-center  text-[14px] mt-6 gap-2">
               <Image
               src={'/Group.png'}
