@@ -10,10 +10,12 @@
     "import-data": "node scripts/importSanityData.mjs"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.9.15",
+    "@clerk/nextjs": "^6.10.1",
     "@sanity/client": "^6.25.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.68.3",
+    "@stripe/react-stripe-js": "^3.1.1",
+    "@stripe/stripe-js": "^5.5.0",
     "@tailwindcss/forms": "^0.5.9",
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
@@ -24,6 +26,8 @@
     "react-dom": "^18",
     "react-icons": "^5.4.0",
     "sanity": "^3.68.3",
+    "shipengine": "^1.0.7",
+    "stripe": "^17.5.0",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {

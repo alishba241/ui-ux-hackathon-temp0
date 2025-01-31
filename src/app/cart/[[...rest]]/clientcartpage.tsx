@@ -4,10 +4,10 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useCart } from "../components/cartcontext";
-import Navbar from "../shop/navbar";
+import { useCart } from "../../components/cartcontext";
+import Navbar from "../../shop/navbar";
 import { AiOutlineRight } from "react-icons/ai";
-import {Product} from '../components/cartcontext'
+import {Product} from '../../components/cartcontext'
 
 const CartPage = () => {
   const { cart = [], removeFromCart, updateCartItemQuantity } = useCart();
@@ -106,16 +106,7 @@ const CartPage = () => {
             </div>
           ) : (
             <ul>
-                <table className="hidden sm:flex md:w-full md:h-[55px] h-[40px] bg-[#FFF9E5] text-[12px] md:text-[16px] font-medium md:font-bold ">
-                 <thead className=" ">
-                <tr className="">
-                  <th className=" font-medium md:font-bold relative right-8">Product</th>
-                  <th className=" font-medium md:font-bold relative right-4">Price</th>
-                  <th className=" font-medium md:font-bold relative right-8">Quantity</th>
-                  <th className=" font-medium md:font-bold relative right-24">Subtotal</th>
-                </tr>
-              </thead>
-              </table>
+                
               {cart.map((item:Product) => (
                 <li
                   key={item.id}

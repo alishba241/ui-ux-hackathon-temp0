@@ -6,6 +6,8 @@ import ShoppingCart from '../shop/shoppingcart';
 import { FaBars } from 'react-icons/fa';
 import { useCart } from '../components/cartcontext';
 import { useWishlist } from '../components/context'; 
+import { SignedOut, SignedIn, SignInButton, UserButton } from '@clerk/nextjs';
+
 
 function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -99,15 +101,32 @@ function Navbar() {
 
       {/* Icons Section */}
       <div className="flex sm:space-x-[30px] space-x-[18px] relative">
-        <Link href="/account">
-          <Image
-            src="/mdi_account-alert-outline.png"
-            alt=""
-            width={28}
-            height={28}
-            className="hover:text-gray-600 sm:h-[28px] sm:w-[28px] h-[22px] w-[22px]"
-          />
-        </Link>
+        <div>
+  {/* If user is signed out */}
+  <SignedOut>
+    <SignInButton>
+        <Image
+          src="/mdi_account-alert-outline.png"
+          alt="Account Icon"
+          width={28}
+          height={28}
+          className="hover:text-gray-600 sm:h-[28px] sm:w-[28px] h-[22px] w-[22px] cursor-pointer"
+        />
+       
+    </SignInButton>
+  </SignedOut>
+
+  {/* If user is signed in */}
+  <SignedIn>
+    <UserButton
+      appearance={{
+        elements: {
+          avatarBox: "w-[28px] h-[28px]", // Styling for avatar size
+        },
+      }}
+    />
+  </SignedIn>
+</div>
       
         <Link href="/wish">
           <div className="relative">

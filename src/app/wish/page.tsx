@@ -65,15 +65,6 @@ export default function WishlistPage() {
             </div>
             ) : (
                 <ul>
-                   <table className="hidden sm:flex md:w-full md:h-[55px] h-[40px] bg-[#FFF9E5] text-[12px] md:text-[16px] font-medium md:font-bold ">
-                 <thead className=" ">
-                <tr className="">
-                  <th className=" font-medium md:font-bold relative right-14">Product</th>
-                  <th className=" font-medium md:font-bold relative right-40">Product Name</th>
-                  <th className=" font-medium md:font-bold relative right-56">Price</th>
-                </tr>
-              </thead>
-              </table>
           {wishlist.map((item: Product) => (
            <li
                              key={item.id}

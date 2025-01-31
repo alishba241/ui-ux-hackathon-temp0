@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineRight } from 'react-icons/ai';
-import RelatedProducts from './relatedproducts';
+import CustomerReview from './customerreviews';
 import { useCart } from '@/app/components/cartcontext';
 import Link from 'next/link';
 import { client } from '@/sanity/lib/client';
@@ -294,7 +294,7 @@ const handleAddToWishList = () => {
         
         </div>
       </div>
-      <RelatedProducts/>
+      <CustomerReview/>
     </div>
   );
 };

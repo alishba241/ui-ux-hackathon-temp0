@@ -17,9 +17,11 @@ interface CartContextType {
   addToCart: (product: Product) => void;
   removeFromCart: (productId: number) => void;
   updateCartItemQuantity: (id: number, quantity: number) => void;
+ 
+
 }
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
+export const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<Product[]>(() => {
@@ -57,6 +59,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       )
     );
   };
+
 
   return (
     <CartContext.Provider
