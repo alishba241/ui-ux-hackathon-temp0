@@ -71,7 +71,7 @@ export default function WishlistPage() {
                              className="flex sm:flex-row flex-col sm:items-center gap-4 border-b border-gray-300 py-8"
                            >
            
-                             <div className="bg-[#FBEBB5] rounded-lg">
+                             <div className="bg-[#FBEBB5] rounded-lg p-1">
                               <Image
                                src={item.image}
                                alt={item.name}
