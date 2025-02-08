@@ -189,7 +189,7 @@ const CartPage = () => {
                         {" "}
                         Rp. {item.price}
                       </p>
-                      <div className="flex items-center gap-2  ">
+                      <div className="flex items-center gap-2 ">
                         <button
                           onClick={() => handleQuantityChange(item.id, -1)}
                           className="sm:w-[20px] sm:h-[20px] h-[15px] w-[15px] text-lg  text-black  bg-[#FBEBB5]  active:border-white active:text-red-500"

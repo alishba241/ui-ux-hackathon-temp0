@@ -5,6 +5,7 @@ import ourBlog from './ourBlog';
 import heroProducts from './heroProducts';
 import herosec from './herosec';
 import products from './products';
+import order from './order';
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -14,7 +15,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     ourBlog,
     heroProducts,
     herosec,
-     products,
+    products,
+     order
     
     ],
 };

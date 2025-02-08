@@ -8,9 +8,10 @@ import { useCart } from "../components/cartcontext";
 import { useState } from 'react';
 
 
-
 const CheckoutButton = () => {
     const { cart } = useCart(); // Fetch Cart Items from Context
+const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
 // Form validation state
     const [formData, setFormData] = useState({
@@ -35,7 +36,10 @@ const CheckoutButton = () => {
 
   
  const handleCheckout = async () => {
-
+setLoading(true);
+   setMessage("");
+   
+   
     if (!isFormValid) {
             alert("Please fill in all required fields.");
             return;
@@ -66,6 +70,44 @@ const CheckoutButton = () => {
     }
   };
 
+  const handleOrder = async () => {
+
+    const total = cart.reduce((sum, item) => sum + item.price * (item.quantity ?? 1), 0);
+
+    setLoading(true);
+    setMessage("");
+
+    const orderData = {
+      ...formData,
+      cartItems: cart.map((item) => ({
+        id: item.id,
+     _key: `${Math.random().toString(36).substr(2, 9)}`,  // Unique key for each item
+
+
+      })),
+      total: total,
+    };
+
+    try {
+      const res = await fetch("/api/placeorder", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setMessage("Order placed successfully!");
+      } else {
+        setMessage(data.error || "Failed to place order.");
+      }
+    } catch {
+      setMessage("Something went wrong.");
+    }
+
+    setLoading(false);
+ 
+  }
 
   return (
 
@@ -348,16 +390,33 @@ const CheckoutButton = () => {
                  {/* Place Order Button */}
                 <div className="flex justify-center mt-8">
                   <button
-                    onClick={handleCheckout}
-                    disabled={!isFormValid && cart.length === 0}
+onClick={handleOrder}   disabled={!isFormValid && cart.length === 0 || loading}
                     className={`text-[14px] md:text-[16px] py-2 md:py-3 px-14 md:px-20 border border-black rounded-[12px] text-black text-center 
                 ${isFormValid ? 'hover:bg-black hover:text-white' : 'bg-gray-300 border-none text-gray-400 cursor-not-allowed'}`}
       >
-            Place order
-      </button>
+            {loading? "Placing Order..." : "Place Order"}
+                  </button>
+                  
                 </div>
+                {message && (
+                  <p className={`text-center mt-4 text-[16px] font-semibold ${message.includes("successfully") ? "text-green-500" : "text-red-500"}`}>
+                    {message}
+                  </p>
+                )}
+
+                {/* Checkout Button - Only appears if order is successfully placed */}
+                {message.includes("successfully") && (
+                  <div className="flex justify-center mt-4">
+                    <button
+                      onClick={handleCheckout}
+                      className="text-[14px] md:text-[16px] py-2 md:py-3 px-14 md:px-20 border border-black rounded-[12px] text-white bg-black text-center hover:bg-gray-800"
+                    >
+                      Proceed to Pay
+                    </button>
+                  </div>
+                )}
             </div>
-                 
+                
                </div>
              </div>
            </div>
