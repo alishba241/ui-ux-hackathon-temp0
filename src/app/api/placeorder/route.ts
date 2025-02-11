@@ -82,7 +82,8 @@ export async function POST(req: NextRequest) {
         console.log("Fetching product with id:", item.id);
 
         const sanityProduct = await client.fetch(
-          `*[_type == "product" && string(id) == $id][0]{_id}`, 
+          `*[_type == "product" && string(id) == $id][0]{_id}`,
+          { id: String(item.id) }
         );
         console.log("Sanity Response:", sanityProduct);
 
